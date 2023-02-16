@@ -3,7 +3,7 @@ import os
 horas = os.path.normcase(r'C:\Users\UIF21362\OneDrive - Continental AG\horas\horas2023.xlsm')
 github= os.path.normcase(r'C:\Users\UIF21362\AppData\Local\GitHubDesktop\GitHubDesktop.exe')
 gitbash= os.path.normcase(r'C:\Program Files\Git\git-bash.exe')
-passSafe= os.path.normcase(r'C:\Program Files\Password Safe\pwsafe.exe')
+passSafe= os.path.normcase(r'C:\Program Files\Password Safe\Password Safe.exe')
 #definimos las funciones que se ejecutarán en la detección
 
 
