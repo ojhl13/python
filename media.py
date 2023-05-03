@@ -1,3 +1,3 @@
-import pyautogui*
+import pyautogui
 
 pyautogui.press('playpause')
