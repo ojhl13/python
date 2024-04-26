@@ -1,4 +1,5 @@
 from xlrd import open_workbook
+
 from tkinter import filedialog
 
 
@@ -8,19 +9,20 @@ filename = filedialog.askopenfilename(initialdir = "/",
                                                         "*.*"),
                                                        ("all files",
                                                         "*.*")))
-print(filename)
-wb = open_workbook(filename)
+#print(filename)
+
+
+wb = open_workbook(filename,on_demand= True)
+print(wb.sheet_names())
 
 sheet = wb.sheet_by_index(2)
-#print (sheet)
-cell =sheet.cell_value(1, 0)
-print(str(cell))
-columns = ["0"]
-print("Columns")
-count = 0
+sheet.cell_value(0, 0)
 
-
-for i in range(sheet.ncols):
-    columns.append(str(i)+"->"+str(sheet.cell_value(1, i)))
-    print(str(i)+"->"+str(sheet.cell_value(1, i)))
-    columns.append(sheet.cell_value(1, i))
+print(sheet.nrows)
+for i in range(sheet.nrows):
+    for j in range(sheet.ncols):
+        print(sheet.cell_value(i, j), end = ", ")
+    print()
+    print(i)
+    input("enter to new line")
+        

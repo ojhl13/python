@@ -1,3 +1,4 @@
+
 from xlrd import open_workbook
 from tkinter import filedialog
 
@@ -8,9 +9,9 @@ filename = filedialog.askopenfilename(initialdir = "/",
                                                         "*.*"),
                                                        ("all files",
                                                         "*.*")))
-print(filename)
+#print(filename)
 wb = open_workbook(filename)
-
+sheet2use =input("write the number of the sheet starting to 0") 
 sheet = wb.sheet_by_index(2)
 #print (sheet)
 cell =sheet.cell_value(1, 0)

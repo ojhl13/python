@@ -1,4 +1,6 @@
-from xlrd import open_workbook
+import openpyxl
+
+
 from tkinter import filedialog
 
 
@@ -8,19 +10,22 @@ filename = filedialog.askopenfilename(initialdir = "/",
                                                         "*.*"),
                                                        ("all files",
                                                         "*.*")))
-print(filename)
-wb = open_workbook(filename)
-
-sheet = wb.sheet_by_index(2)
-#print (sheet)
-cell =sheet.cell_value(1, 0)
-print(str(cell))
-columns = ["0"]
-print("Columns")
-count = 0
+#print(filename)
 
 
-for i in range(sheet.ncols):
-    columns.append(str(i)+"->"+str(sheet.cell_value(1, i)))
-    print(str(i)+"->"+str(sheet.cell_value(1, i)))
-    columns.append(sheet.cell_value(1, i))
+
+
+doc = openpyxl.load_workbook(filename)
+sheets = doc.get_sheet_names()
+sheet = doc["Guidelines"]
+files=[]
+for col in sheet.iter_cols(min_row=3,max_col=1,values_only=True):
+    for data in col:
+        #print(data)
+        if data not in files:
+            files.append(data)
+counter=0           
+for data in files:
+    print(data,end='\n')
+    counter+=1
+print (counter)

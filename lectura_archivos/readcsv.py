@@ -1,4 +1,4 @@
-from xlrd import open_workbook
+import csv
 from tkinter import filedialog
 
 
@@ -8,19 +8,16 @@ filename = filedialog.askopenfilename(initialdir = "/",
                                                         "*.*"),
                                                        ("all files",
                                                         "*.*")))
-print(filename)
-wb = open_workbook(filename)
-
-sheet = wb.sheet_by_index(2)
-#print (sheet)
-cell =sheet.cell_value(1, 0)
-print(str(cell))
-columns = ["0"]
-print("Columns")
-count = 0
+print(filename)   
 
 
-for i in range(sheet.ncols):
-    columns.append(str(i)+"->"+str(sheet.cell_value(1, i)))
-    print(str(i)+"->"+str(sheet.cell_value(1, i)))
-    columns.append(sheet.cell_value(1, i))
+# opening the CSV file
+
+with open(filename, mode ='r')as file:
+    # reading the CSV file
+    csvFile = csv.reader(file)
+
+    # displaying the contents of the CSV file
+    for lines in csvFile:
+        print(lines)
+    
