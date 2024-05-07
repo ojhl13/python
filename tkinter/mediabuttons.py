@@ -5,7 +5,7 @@ ser = serial.Serial()
 def config_ser():
     
 
-    ser.port = 'COM26'
+    ser.port = 'COM14'
     ser.baudrate = '115200'
     ser.open()
 
